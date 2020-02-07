@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
 class Main extends Component {
+  
+  async componentDidMount() {
+    const url = "https://api.openweathermap.org/data/2.5/forecast?zip=95008&appid=";
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+  }
 
   render(){
     return(
