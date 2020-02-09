@@ -12,7 +12,7 @@ class Header extends Component {
   render(){
     const today = this.state.currentDate;
     const day = Moment(today).format("dddd");
-    const date = Moment(today).format("MMMM D, YYYY");
+    const date = Moment(today).format(" MMMM D, YYYY");
     return(
       <div className="header">
           {day},

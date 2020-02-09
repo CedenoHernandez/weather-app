@@ -1,22 +1,53 @@
 import React, { Component } from 'react';
+import apiConfig from '../apiKeys';
 
 class Main extends Component {
   
-  async componentDidMount() {
-    const url = "https://api.openweathermap.org/data/2.5/forecast?zip=95008&appid=";
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
+  constructor(props) {
+    super(props);
+    this.state = {
+      city: null,
+      ZIP_code: 95124
+    }
   }
+
+  handleChange = (e) => {
+    this.setState({
+      ZIP_code: e.target.value
+    })
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.setState({
+      ZIP_code: this.state.ZIP_code
+    })
+    this.componentDidMount();
+  }
+
+  componentDidMount() {
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${this.state.ZIP_code}&appid=${apiConfig.apiKey}`)
+    .then(results => {
+      return results.json();
+    }).then(data => {
+      console.log(data);
+      this.setState({city: data.city.name});
+    })
+  }
+
 
   render(){
     return(
       <div className="main">
         <div className="search">
           <form className="form" action="submit">
-            <input className="city-input" type="text"placeholder="Enter ZIP code" />
-            <button className="button">Search</button>
+            <p className="form-label">Enter ZIP Code:</p>
+            <input className="city-input" type="text" placeholder="Enter ZIP code" value={this.state.ZIP_code} onChange={e => this.handleChange(e)} />
+            <button type="submit" className="button" onClick={e => this.onSubmit(e)}>Search</button>
           </form>
+        </div>
+        <div className="city">
+          {this.state.city}
         </div>
         <div className="weather-cards">
           <div className="card1">
