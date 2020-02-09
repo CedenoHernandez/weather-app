@@ -15,6 +15,7 @@ class Header extends Component {
     const date = Moment(today).format(" MMMM D, YYYY");
     return(
       <div className="header">
+        <h3>5-Day Weather Forecast</h3>
           {day},
           {date}
       </div>

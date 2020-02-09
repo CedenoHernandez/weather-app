@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import apiConfig from '../apiKeys';
+import Moment from 'moment';
 
 class Main extends Component {
   
@@ -26,12 +27,18 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${this.state.ZIP_code}&appid=${apiConfig.apiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${this.state.ZIP_code}&units=imperial&appid=${apiConfig.apiKey}`)
     .then(results => {
       return results.json();
     }).then(data => {
-      console.log(data);
+      const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00")) //filter help from Leizl Samano
+      console.log(dailyData);
       this.setState({city: data.city.name});
+      this.setState({temp1: Math.round(dailyData[0].main.temp)});
+      this.setState({temp2: Math.round(dailyData[1].main.temp)});
+      this.setState({temp3: Math.round(dailyData[2].main.temp)});
+      this.setState({temp4: Math.round(dailyData[3].main.temp)});
+      this.setState({temp5: Math.round(dailyData[4].main.temp)});
     })
   }
 
@@ -42,7 +49,7 @@ class Main extends Component {
         <div className="search">
           <form className="form" action="submit">
             <p className="form-label">Enter ZIP Code:</p>
-            <input className="city-input" type="text" placeholder="Enter ZIP code" value={this.state.ZIP_code} onChange={e => this.handleChange(e)} />
+            <input className="city-input" type="text" placeholder="ZIP code" value={this.state.ZIP_code} onChange={e => this.handleChange(e)} />
             <button type="submit" className="button" onClick={e => this.onSubmit(e)}>Search</button>
           </form>
         </div>
@@ -52,81 +59,66 @@ class Main extends Component {
         <div className="weather-cards">
           <div className="card1">
             <div className="day">
-              <p>Friday</p>
+              <p>Today</p>
             </div>
             <div className="day-img">
               <img src="../images/sunny.png" alt=""/>
             </div>
             <div className="temperatures">
-              <div className="low-temp">
-                <p>44°</p>
-              </div>
               <div className="high-temp">
-                <p>69°</p>
+                <p>{this.state.temp1}°</p>
               </div>
             </div>
           </div>
           <div className="card2">
             <div className="day">
-                <p>Saturday</p>
+                <p>{Moment().add(1, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
               <img src="../images/sunny.png" alt=""/>
             </div>
             <div className="temperatures">
-              <div className="low-temp">
-                  <p>40°</p>
-              </div>
               <div className="high-temp">
-                  <p>72°</p>
+                <p>{this.state.temp2}°</p>
               </div>
             </div>
           </div>
           <div className="card3">
             <div className="day">
-              <p>Sunday</p>
+              <p>{Moment().add(2, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
               <img src="../images/cloudy.png" alt=""/>
             </div>
             <div className="temperatures">
-              <div className="low-temp">
-                <p>41°</p>
-              </div>
               <div className="high-temp">
-                <p>65°</p>
+                <p>{this.state.temp3}°</p>
               </div>
             </div>
           </div>
           <div className="card4">
             <div className="day">
-              <p>Monday</p>
+              <p>{Moment().add(3, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
               <img src="../images/partial-cloudy.png" alt=""/>
             </div>
             <div className="temperatures">
-              <div className="low-temp">
-                <p>44°</p>
-              </div>
               <div className="high-temp">
-                <p>69°</p>
+                <p>{this.state.temp4}°</p>
               </div>
             </div>
           </div>
           <div className="card5">
             <div className="day">
-              <p>Tuesday</p>
+              <p>{Moment().add(4, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
               <img src="../images/sunny.png" alt=""/>
             </div>
             <div className="temperatures">
-              <div className="low-temp">
-                <p>48°</p>
-              </div>
               <div className="high-temp">
-                <p>71°</p>
+                <p>{this.state.temp5}°</p>
               </div>
             </div>
           </div>
