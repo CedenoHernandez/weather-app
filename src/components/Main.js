@@ -71,6 +71,7 @@ class Main extends Component {
 
     return(
       <div className="main">
+
         <div className="search">
           <form className="form" action="submit">
             <p className="form-label">Enter ZIP Code:</p>
@@ -78,10 +79,13 @@ class Main extends Component {
             <button type="submit" className="button" onClick={e => this.onSubmit(e)}>Search</button>
           </form>
         </div>
+
         <div className="city">
           {this.state.city}
         </div>
+
         <div className="weather-cards">
+
           <div className="card1">
             <div className="day">
               <p>{Moment().add(1, 'days').format('dddd')}</p>
@@ -98,6 +102,7 @@ class Main extends Component {
               {this.state.des1}
             </div>
           </div>
+
           <div className="card2">
             <div className="day">
                 <p>{Moment().add(2, 'days').format('dddd')}</p>
@@ -114,6 +119,7 @@ class Main extends Component {
               {this.state.des2}
             </div>
           </div>
+
           <div className="card3">
             <div className="day">
               <p>{Moment().add(3, 'days').format('dddd')}</p>
@@ -130,6 +136,7 @@ class Main extends Component {
               {this.state.des3}
             </div>
           </div>
+
           <div className="card4">
             <div className="day">
               <p>{Moment().add(4, 'days').format('dddd')}</p>
@@ -146,6 +153,7 @@ class Main extends Component {
               {this.state.des4}
             </div>
           </div>
+
           <div className="card5">
             <div className="day">
               <p>{Moment().add(5, 'days').format('dddd')}</p>
@@ -162,6 +170,7 @@ class Main extends Component {
               {this.state.des5}
             </div>
           </div>
+          
         </div>
       </div>
     )
