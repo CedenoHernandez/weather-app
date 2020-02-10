@@ -32,6 +32,7 @@ class Main extends Component {
       return results.json();
     }).then(data => {
       const dailyData = data.list.filter(reading => reading.dt_txt.includes("00:00:00")) //filter help from Leizl Samano
+      console.log(data);
       console.log(dailyData);
       this.setState({city: data.city.name});
       this.setState({temp1: Math.round(dailyData[0].main.temp)});
@@ -63,7 +64,7 @@ class Main extends Component {
         <div className="weather-cards">
           <div className="card1">
             <div className="day">
-              <p>Today</p>
+              <p>{Moment().add(1, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
               <img src="../images/sunny.png" alt=""/>
@@ -77,7 +78,7 @@ class Main extends Component {
           </div>
           <div className="card2">
             <div className="day">
-                <p>{Moment().add(1, 'days').format('dddd')}</p>
+                <p>{Moment().add(2, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
               <img src="../images/sunny.png" alt=""/>
@@ -90,7 +91,7 @@ class Main extends Component {
           </div>
           <div className="card3">
             <div className="day">
-              <p>{Moment().add(2, 'days').format('dddd')}</p>
+              <p>{Moment().add(3, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
               <img src="../images/cloudy.png" alt=""/>
@@ -103,7 +104,7 @@ class Main extends Component {
           </div>
           <div className="card4">
             <div className="day">
-              <p>{Moment().add(3, 'days').format('dddd')}</p>
+              <p>{Moment().add(4, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
               <img src="../images/partial-cloudy.png" alt=""/>
@@ -116,7 +117,7 @@ class Main extends Component {
           </div>
           <div className="card5">
             <div className="day">
-              <p>{Moment().add(4, 'days').format('dddd')}</p>
+              <p>{Moment().add(5, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
               <img src="../images/sunny.png" alt=""/>
