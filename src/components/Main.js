@@ -31,7 +31,7 @@ class Main extends Component {
     .then(results => {
       return results.json();
     }).then(data => {
-      const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00")) //filter help from Leizl Samano
+      const dailyData = data.list.filter(reading => reading.dt_txt.includes("00:00:00")) //filter help from Leizl Samano
       console.log(dailyData);
       this.setState({city: data.city.name});
       this.setState({temp1: Math.round(dailyData[0].main.temp)});
@@ -39,6 +39,10 @@ class Main extends Component {
       this.setState({temp3: Math.round(dailyData[2].main.temp)});
       this.setState({temp4: Math.round(dailyData[3].main.temp)});
       this.setState({temp5: Math.round(dailyData[4].main.temp)});
+      // this.setState({day1 : dailyData[0].weather[0].description});
+      // if (dailyData[0].weather[0].description === "clear sky"){
+      //   return <img src="../images/sunny.png" alt=""/>
+      // }
     })
   }
 
@@ -63,6 +67,7 @@ class Main extends Component {
             </div>
             <div className="day-img">
               <img src="../images/sunny.png" alt=""/>
+              {/* {this.state.day1} */}
             </div>
             <div className="temperatures">
               <div className="high-temp">
