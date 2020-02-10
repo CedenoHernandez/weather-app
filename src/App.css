@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-  background-image: url('/images/weather.png'); /*image from subtlepatterns.com*/
+  background-color: #fff;
 }
 
 /* Header component */
@@ -14,7 +14,8 @@ body {
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
-  background-color: #8ae6e6;
+  color: #ffde22;
+  background-color: #2d3436;
   box-shadow: 10px 5px 5px #D3D3D3;
 }
 
@@ -31,7 +32,8 @@ body {
   margin: 0 auto;
   margin-top: 3rem;
   justify-content: center;
-  background-color: #fff;
+  background-color: #2d3436;
+  color: #fff;
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 10px 5px 5px #D3D3D3;
@@ -59,7 +61,8 @@ body {
   border: none;
   border: 1px solid #222;
   height: 22px;
-  background-color: #8ae6e6;
+  background-color: #ffde22;
+  color: #2d3436;
   font-weight: bold;
 }
 
@@ -84,7 +87,8 @@ body {
 .card5 {
   height: 300px;
   width: 200px;
-  background-color: #fff;
+  background-color: #2d3436;
+  color: #fff;
   margin: 2rem;
   border-radius: 10px;
   box-shadow: 10px 5px 5px #D3D3D3;
@@ -94,6 +98,7 @@ body {
   text-align: center;
   font-weight: bold;
   text-decoration: underline;
+  color: #ffde22;
 }
 
 .temperatures {
@@ -105,12 +110,9 @@ body {
   padding: 0.8rem;
 }
 
-.low-temp {
-  font-style: italic;
-}
-
 .high-temp {
   font-weight: bold;
+  color: #ffde22;
 }
 
 .day-img {
@@ -125,19 +127,27 @@ img {
   height: 150px;
 }
 
-.owf-800 {
-  color: #ffc106;
+.owf {
+  color: #fff;
 }
 
-.owf-801,
-.owf-802,
-.owf-803,
-.owf-804 {
-  color: #808080;
+.description {
+  font-style: italic;
+  text-align: center;
 }
 
-.owf-500,
-.owf-501,
-.owf-502 {
-  color: #000fff;
-}
+
+
+/*Animations*/
+
+/* .card1,
+.card2,
+.card3,
+.card4,
+.card5{
+  animation: pop 0.3s linear 1;
+} */
+
+/* @keyframes pop{
+  50%  {transform: scale(1.1);}
+} */
