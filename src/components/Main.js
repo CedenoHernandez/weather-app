@@ -31,8 +31,7 @@ class Main extends Component {
     .then(results => {
       return results.json();
     }).then(data => {
-      const dailyData = data.list.filter(reading => reading.dt_txt.includes("00:00:00")) //filter help from Leizl Samano
-      console.log(data);
+      const dailyData = data.list.filter(reading => reading.dt_txt.includes("00:00:00")); //filter help from Leizl Samano
       console.log(dailyData);
       this.setState({city: data.city.name});
       this.setState({temp1: Math.round(dailyData[0].main.temp)});
@@ -40,15 +39,26 @@ class Main extends Component {
       this.setState({temp3: Math.round(dailyData[2].main.temp)});
       this.setState({temp4: Math.round(dailyData[3].main.temp)});
       this.setState({temp5: Math.round(dailyData[4].main.temp)});
-      // this.setState({day1 : dailyData[0].weather[0].description});
-      // if (dailyData[0].weather[0].description === "clear sky"){
-      //   return <img src="../images/sunny.png" alt=""/>
-      // }
+
+      this.setState({day1 : dailyData[0].weather[0].id});
+      this.setState({day2 : dailyData[1].weather[0].id});
+      this.setState({day3 : dailyData[2].weather[0].id});
+      this.setState({day4 : dailyData[3].weather[0].id});
+      this.setState({day5 : dailyData[4].weather[0].id});
+      
     })
   }
 
 
   render(){
+    
+    let imgURL = `owf owf-${this.state.day1} owf-5x`;
+    let imgURL2 = `owf owf-${this.state.day2} owf-5x`;
+    let imgURL3 = `owf owf-${this.state.day3} owf-5x`;
+    let imgURL4 = `owf owf-${this.state.day4} owf-5x`;
+    let imgURL5 = `owf owf-${this.state.day5} owf-5x`;
+
+
     return(
       <div className="main">
         <div className="search">
@@ -67,8 +77,7 @@ class Main extends Component {
               <p>{Moment().add(1, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
-              <img src="../images/sunny.png" alt=""/>
-              {/* {this.state.day1} */}
+              <i className={imgURL}></i>
             </div>
             <div className="temperatures">
               <div className="high-temp">
@@ -81,7 +90,7 @@ class Main extends Component {
                 <p>{Moment().add(2, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
-              <img src="../images/sunny.png" alt=""/>
+              <i className={imgURL2}></i>
             </div>
             <div className="temperatures">
               <div className="high-temp">
@@ -94,7 +103,7 @@ class Main extends Component {
               <p>{Moment().add(3, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
-              <img src="../images/cloudy.png" alt=""/>
+              <i className={imgURL3}></i>
             </div>
             <div className="temperatures">
               <div className="high-temp">
@@ -107,7 +116,7 @@ class Main extends Component {
               <p>{Moment().add(4, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
-              <img src="../images/partial-cloudy.png" alt=""/>
+              <i className={imgURL4}></i>
             </div>
             <div className="temperatures">
               <div className="high-temp">
@@ -120,7 +129,7 @@ class Main extends Component {
               <p>{Moment().add(5, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
-              <img src="../images/sunny.png" alt=""/>
+              <i className={imgURL5}></i>
             </div>
             <div className="temperatures">
               <div className="high-temp">

@@ -118,8 +118,26 @@ body {
   align-items: center;
   text-align: center;
   margin: 0 auto;
+  margin-top: 3rem;
 }
 
 img {
   height: 150px;
+}
+
+.owf-800 {
+  color: #ffc106;
+}
+
+.owf-801,
+.owf-802,
+.owf-803,
+.owf-804 {
+  color: #808080;
+}
+
+.owf-500,
+.owf-501,
+.owf-502 {
+  color: #000fff;
 }
