@@ -23,7 +23,7 @@ class Main extends Component {
     this.setState({
       ZIP_code: this.state.ZIP_code
     })
-    this.componentDidMount();
+    this.componentDidMount(); /*allows page to reload with new API data*/
   }
 
   componentDidMount() {
@@ -34,25 +34,35 @@ class Main extends Component {
       const dailyData = data.list.filter(reading => reading.dt_txt.includes("00:00:00")); //filter help from Leizl Samano
       console.log(dailyData);
       this.setState({city: data.city.name});
+
+      // pull daily temperature highs
       this.setState({temp1: Math.round(dailyData[0].main.temp)});
       this.setState({temp2: Math.round(dailyData[1].main.temp)});
       this.setState({temp3: Math.round(dailyData[2].main.temp)});
       this.setState({temp4: Math.round(dailyData[3].main.temp)});
       this.setState({temp5: Math.round(dailyData[4].main.temp)});
 
+      // pull icon id to be matched with class in render below
       this.setState({day1 : dailyData[0].weather[0].id});
       this.setState({day2 : dailyData[1].weather[0].id});
       this.setState({day3 : dailyData[2].weather[0].id});
       this.setState({day4 : dailyData[3].weather[0].id});
       this.setState({day5 : dailyData[4].weather[0].id});
+
+      // pull daily weather descriptions
+      this.setState({des1 : dailyData[0].weather[0].description});
+      this.setState({des2 : dailyData[1].weather[0].description});
+      this.setState({des3 : dailyData[2].weather[0].description});
+      this.setState({des4 : dailyData[3].weather[0].description});
+      this.setState({des5 : dailyData[4].weather[0].description});
       
     })
   }
 
 
   render(){
-    
-    let imgURL = `owf owf-${this.state.day1} owf-5x`;
+    // use owfont stylesheet to render weather icons
+    let imgURL1 = `owf owf-${this.state.day1} owf-5x`;
     let imgURL2 = `owf owf-${this.state.day2} owf-5x`;
     let imgURL3 = `owf owf-${this.state.day3} owf-5x`;
     let imgURL4 = `owf owf-${this.state.day4} owf-5x`;
@@ -77,12 +87,15 @@ class Main extends Component {
               <p>{Moment().add(1, 'days').format('dddd')}</p>
             </div>
             <div className="day-img">
-              <i className={imgURL}></i>
+              <i className={imgURL1}></i>
             </div>
             <div className="temperatures">
               <div className="high-temp">
                 <p>{this.state.temp1}°</p>
               </div>
+            </div>
+            <div className="description">
+              {this.state.des1}
             </div>
           </div>
           <div className="card2">
@@ -97,6 +110,9 @@ class Main extends Component {
                 <p>{this.state.temp2}°</p>
               </div>
             </div>
+            <div className="description">
+              {this.state.des2}
+            </div>
           </div>
           <div className="card3">
             <div className="day">
@@ -109,6 +125,9 @@ class Main extends Component {
               <div className="high-temp">
                 <p>{this.state.temp3}°</p>
               </div>
+            </div>
+            <div className="description">
+              {this.state.des3}
             </div>
           </div>
           <div className="card4">
@@ -123,6 +142,9 @@ class Main extends Component {
                 <p>{this.state.temp4}°</p>
               </div>
             </div>
+            <div className="description">
+              {this.state.des4}
+            </div>
           </div>
           <div className="card5">
             <div className="day">
@@ -135,6 +157,9 @@ class Main extends Component {
               <div className="high-temp">
                 <p>{this.state.temp5}°</p>
               </div>
+            </div>
+            <div className="description">
+              {this.state.des5}
             </div>
           </div>
         </div>
