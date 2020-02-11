@@ -14,8 +14,8 @@ body {
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #ffde22;
-  background-color: #2d3436;
+  color:#fff;
+  background-color: #0074D9;
   box-shadow: 10px 5px 5px #D3D3D3;
 }
 
@@ -32,7 +32,7 @@ body {
   margin: 0 auto;
   margin-top: 3rem;
   justify-content: center;
-  background-color: #2d3436;
+  background-color: #0074D9;
   color: #fff;
   padding: 1rem;
   border-radius: 10px;
@@ -61,16 +61,21 @@ body {
   border: none;
   border: 1px solid #222;
   height: 22px;
-  background-color: #ffde22;
-  color: #2d3436;
+  background-color: #3300d9;
+  color: #fff;
   font-weight: bold;
 }
 
 .city {
-  margin-top: 3rem;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  border-radius: 10px;
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
+  background-color: #3300d9;
+  color: #fff;
 }
 
 .weather-cards {
@@ -87,7 +92,7 @@ body {
 .card5 {
   height: 300px;
   width: 200px;
-  background-color: #2d3436;
+  background-color: #0074D9;
   color: #fff;
   margin: 2rem;
   border-radius: 10px;
@@ -98,7 +103,7 @@ body {
   text-align: center;
   font-weight: bold;
   text-decoration: underline;
-  color: #ffde22;
+  color: #fff;
 }
 
 .temperatures {
@@ -112,7 +117,7 @@ body {
 
 .high-temp {
   font-weight: bold;
-  color: #ffde22;
+  color: #fff;
 }
 
 .day-img {
@@ -135,7 +140,6 @@ img {
   font-style: italic;
   text-align: center;
 }
-
 /*Media queries*/
 
 @media (max-width: 810px) {
@@ -147,6 +151,9 @@ img {
   }
   .form {
     width: 30%;
+  }
+  .city {
+    width: 50%;
   }
 }
 
@@ -161,8 +168,8 @@ img {
     width: 50%;
   }
   .city {
-    background-color: #2d3436;
-    color: #ffde22;
+    width: 100%;
+    border-radius: 0;
   }
   .card1,
   .card2,
