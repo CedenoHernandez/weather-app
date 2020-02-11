@@ -136,6 +136,46 @@ img {
   text-align: center;
 }
 
+/*Media queries*/
+
+@media (max-width: 810px) {
+  .header {
+    font-size: 1.6rem;
+  }
+  .header h3 {
+    font-size: 2.2rem;
+  }
+  .form {
+    width: 30%;
+  }
+}
+
+@media (max-width:750px) {
+  .header {
+    font-size: 1rem;
+  }
+  .header h3 {
+    font-size: 1.5rem;
+  }
+  .form {
+    width: 50%;
+  }
+  .city {
+    background-color: #2d3436;
+    color: #ffde22;
+  }
+  .card1,
+  .card2,
+  .card3,
+  .card4,
+  .card5 {
+    margin-bottom: 0;
+    width: 250px;
+  }
+  .card5 {
+    margin-bottom: 1.5rem;
+  }
+}
 
 
 /*Animations*/
