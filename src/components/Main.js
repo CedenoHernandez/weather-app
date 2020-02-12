@@ -16,6 +16,9 @@ class Main extends Component {
     this.setState({
       ZIP_code: e.target.value
     })
+    // checkZip(value) {
+    //   return (/(^\d{5}$)|(^\d{5}-\d{4}$)/).test(value);
+    // };
   }
 
   onSubmit = (e) => {
